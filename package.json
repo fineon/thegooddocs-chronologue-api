@@ -1,0 +1,19 @@
+{
+  "name": "thegooddocs-chronologues-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./testAPI.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "thegooddocs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "express": "^4.17.1"
+  }
+}
