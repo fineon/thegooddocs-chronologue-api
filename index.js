@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
  */
 
 let canDate = new Date
+console.log(canDate.toUTCString())
 let allCountries = [
   {
     Canada: [
@@ -96,12 +97,15 @@ app.get('/allcountries', (req, res) => {
   res.json(allCountriesID)
 })
 
+/**
+ * @deprecated
+ */
 // app.get('/1990', (req, res) => {
 //   res.json(allCountries)
 // })
 
 /**
- * 
+ * @description
  * expressjs doesnt differentiate any types of url params. Anything inputed in the first route will be evaluated
 */
 // app.get('/:time', (req, res) => {
@@ -152,21 +156,19 @@ app.get('/location/:location', (req, res) => {
 })
 
 /**
- * @example
+ * @description
  * duplicated URI path which makes error detection faulty. Need unique URI for !req.params.location to work
+ * 
+ * poor api design example. Requests cant differentiate between different resources
  */
 // app.get('/1990/:location', (req, res) => {
 //   console.log(req.params.location)
-
 //   if (!req.params.location) {
 //     console.error('no paramerters detected. Please enter a location')
 //   }
-
 //   // if (req.params.location === 'canada') {
 //   //   console.log('you have requested canada events in 1990')
 //   // }
-
-
 // })
 
 let allpossibilities=[[1990,1991],['canada','usa']]

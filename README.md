@@ -10,6 +10,11 @@ npm start
 npm run test
 ```
 
+## To-do list for API development
+- Create a good database model/schema for JSON response objects
+- Look for real events in computer history and apply them to the JSON objects
+- 
+
 ## Refeferences
 [Microsoft REST API guide](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design#use-hateoas-to-enable-navigation-to-related-resources)
 
