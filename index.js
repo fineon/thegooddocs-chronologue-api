@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 8080
+const apiData = require('./historical-events.js')
 
 let allRoutes =[
   {countries: '/allcountries'},
@@ -9,104 +10,19 @@ let allRoutes =[
 ]
 
 app.get('/', (req, res) => {
-  res.status('200').send('Hello World!')
+  res.status('200').json(allRoutes)
 })
 
-/**
- * @type {Array}
- * @description date is in UTC time string
- */
 
-let canDate = new Date
-console.log(canDate.toUTCString())
-let allCountries = [
-  {
-    Canada: [
-      {
-        jan:
-          [
-            {
-              event: '1st computer invented',
-              date: canDate.toUTCString(),
-              link: 'https://youtube.com'
-            },
-            {
-              event: 'computer IBM announced',
-              date: 'all in UTC time zone for ease of conversion',
-              link: 'https://youtube.com'
-            }
-          ]
-      },
-      { feb: '2' },
-      { march: '3' },
-      { april: '4' },
-      { may: '5' },
-      { june: '6' },
-      { july: '7' },
-      { august: '8' },
-      { sept: '9' },
-      { oct: '10' },
-      { nov: '11' },
-      { dec: '12' },
-    ]
-  },
-  {
-    USA: [
-      {
-        jan:
-          [
-            {
-              event: '1st computer invented',
-              date: 'all in UTC time zone for ease of conversion',
-              link: 'https://youtube.com'
-            },
-            {
-              event: 'computer IBM announced',
-              date: 'all in UTC time zone for ease of conversion',
-              link: 'https://youtube.com'
-            }
-          ]
-      },
-      { feb: '2' },
-      { march: '3' },
-      { april: '4' },
-      { may: '5' },
-      { june: '6' },
-      { july: '7' },
-      { august: '8' },
-      { sept: '9' },
-      { oct: '10' },
-      { nov: '11' },
-      { dec: '12' },
-    ]
-  },
-
-]
-
-let allCountriesID = [
-  {
-    allCountries: ['canada', 'usa'],
-    URLexample: [
-      'http://localhost:3000/1990/canada',
-      'http://localhost:3000/1990/usa'
-    ]
-  },
-]
-
-app.get('/allcountries', (req, res) => {
-  res.json(allCountriesID)
+app.get('/allcountriesid', (req, res) => {
+  res.json(apiData.allCountriesID)
 })
 
-/**
- * @deprecated
- */
-// app.get('/1990', (req, res) => {
-//   res.json(allCountries)
-// })
 
 /**
  * @description
- * expressjs doesnt differentiate any types of url params. Anything inputed in the first route will be evaluated
+ * expressjs doesnt differentiate any types of url params. Anything inputed in the first route will be evaluated. 
+ * Bad API design
 */
 // app.get('/:time', (req, res) => {
 //   console.log(req.params)
@@ -129,7 +45,7 @@ app.get('/year/:time', (req, res) => {
 
   switch (req.params.time) {
     case '1990':
-      res.json(allCountries)
+      res.json(apiData.allCountries)
       break;
     case '1991':
       console.log('you have requested all events in 1991 around the world')
@@ -171,7 +87,6 @@ app.get('/location/:location', (req, res) => {
 //   // }
 // })
 
-let allpossibilities=[[1990,1991],['canada','usa']]
 
 //scaling this might be messy
 app.get('/year/:time/location/:location', (req, res) => {
@@ -179,21 +94,6 @@ app.get('/year/:time/location/:location', (req, res) => {
   // res.json(`you have sent a request to ${req.params}`)
   req.params.time === '1990' && req.params.location=='canada' ? res.send('canada in 1990 maxtrix') : res.send('not found')
 
-  // switch (req.params.time) {
-  //   case '1990':
-  //     req.params.location === 'canada'? 
-  //     res.json(allCountries) : 
-  //     res.send('not canada, sending usa data')
-  //     break;
-  //   case '1991':
-  //     req.params.location === 'usa'? 
-  //     res.json(allCountries) : 
-  //     res.send('not usa, sending usa data')
-  //     break;
-  //   default:
-  //     res.send('not found')
-  //     break;
-  // }
 })
 
 app.listen(port, () => {

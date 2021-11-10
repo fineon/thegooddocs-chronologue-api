@@ -20,7 +20,7 @@ function requestsInOrder(params) {
     //fetchOnlyLocation().catch((err)=>console.error(err));
 
     async function fetchAllCountries(params) {
-        let result4= await axios.get('http://localhost:8080/allcountries')
+        let result4= await axios.get('http://localhost:8080/allcountriesid')
         console.log(result4.data)
     }
     Promise.all([fetchAllCountries(), fetchOnlyLocation(),fetchYearandLocation(),fetchYearOnly()]).catch((err)=> console.error(err))
