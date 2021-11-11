@@ -1,17 +1,3 @@
-exports.events = [
-  {
-    source: ''
-  },
-
-]
-
-exports.countries = [
-  { northAmerica: ['canada', 'usa'] },
-  { asia: '' },
-  { africa: '' },
-
-]
-
 /**
  * country
  * year
@@ -22,76 +8,36 @@ exports.countries = [
  * all year + all countries event data
  */
 
-let year1 = [{
-  1990: [
-  {jan: ['...','...']},
-  {feb: '...'},
-  {mar:'...'},
-  {apr:'...'},
-  {may:'...'}
-  ]
-}]
-
-let country1 = [{can: [...year1]}]
-console.log(country1)
-
+//all countries and 1 year event data
 exports.allCountries = [
   {
     Canada: [
-      {
-        jan:
-          [
-            {
-              event: '1st computer invented',
-              date: 'all in UTC time zone for ease of conversion',
-              link: 'https://youtube.com'
-            },
-            {
-              event: 'computer IBM announced',
-              date: 'all in UTC time zone for ease of conversion',
-              link: 'https://youtube.com'
-            }
-          ]
-      },
-      { feb: '2' },
-      { march: '3' },
-      { april: '4' },
-      { may: '5' },
-      { june: '6' },
-      { july: '7' },
-      { august: '8' },
-      { sept: '9' },
-      { oct: '10' },
+        {
+            event: '1st computer invented',
+            date: 'all in UTC time zone for ease of conversion',
+            link: 'https://youtube.com'
+        },
+        {
+            event: 'computer IBM announced',
+            date: 'all in UTC time zone for ease of conversion',
+            link: 'https://youtube.com'
+        },
       { nov: '11' },
       { dec: '12' },
     ]
   },
   {
     USA: [
-      {
-        jan:
-          [
-            {
-              event: '1st computer invented',
-              date: 'all in UTC time zone for ease of conversion',
-              link: 'https://youtube.com'
-            },
-            {
-              event: 'computer IBM announced',
-              date: 'all in UTC time zone for ease of conversion',
-              link: 'https://youtube.com'
-            }
-          ]
-      },
-      { feb: '2' },
-      { march: '3' },
-      { april: '4' },
-      { may: '5' },
-      { june: '6' },
-      { july: '7' },
-      { august: '8' },
-      { sept: '9' },
-      { oct: '10' },
+        {
+            event: '1st computer invented',
+            date: 'all in UTC time zone for ease of conversion',
+            link: 'https://youtube.com'
+        },
+        {
+            event: 'computer IBM announced',
+            date: 'all in UTC time zone for ease of conversion',
+            link: 'https://youtube.com'
+        },
       { nov: '11' },
       { dec: '12' },
     ]
@@ -99,12 +45,22 @@ exports.allCountries = [
 
 ]
 
+//all year + 1 country event data
+exports.allYearsOnlyCanada = [
+    { 3500: [ {jan: '...'},{feb: '...'} ] },
+    { 4000: ['...'] },
+]
+
+//all year + all countries
+exports.allYearsAllCountries = [
+    { 3500: allCountries  },
+    { 4000: allCountries },
+]
+
+
 exports.allCountriesID = [
   {
     allCountries: ['canada', 'usa'],
-    URLexample: [
-      'http://localhost:3000/1990/canada',
-      'http://localhost:3000/1990/usa'
-    ]
+    countryMetadata: [ { } ]
   },
 ]
