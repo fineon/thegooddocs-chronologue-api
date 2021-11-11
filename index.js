@@ -1,7 +1,10 @@
 const express = require('express')
 const app = express()
 const port = 8080
-const apiData = require('./historical-events.js')
+const {
+  allCountries, 
+  allCountriesID 
+  } = require('./historical-events.js')
 
 let allRoutes =[
   {countries: '/allcountries'},
@@ -15,7 +18,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/allcountriesid', (req, res) => {
-  res.json(apiData.allCountriesID)
+  res.json(allCountriesID)
 })
 
 
@@ -45,7 +48,7 @@ app.get('/year/:time', (req, res) => {
 
   switch (req.params.time) {
     case '1990':
-      res.json(apiData.allCountries)
+      res.json(allCountries)
       break;
     case '1991':
       console.log('you have requested all events in 1991 around the world')
@@ -99,3 +102,4 @@ app.get('/year/:time/location/:location', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+

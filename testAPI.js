@@ -8,7 +8,7 @@ function requestsInOrder(params) {
     //fetchYearOnly().catch((err)=>console.error(err))
     
     async function fetchYearandLocation(params) {
-        let result2= await axios.get('http://localhost:8080/year/1990/location/canada');
+        let result2= await axios.get('http://localhost:8080/year/1990/location/usa');
         console.log(result2.data);
     }
     //fetchYearandLocation().catch((err)=>console.error(err));

@@ -8,12 +8,16 @@
  * all year + all countries event data
  */
 
+//standardize date format
+let isoDateString = new Date().toISOString();
+console.log(isoDateString);
+
 //all countries and 1 year event data
-exports.allCountries = [
+let originCountries = [
   {
     Canada: [
         {
-            event: '1st computer invented',
+            event: '1st dyson sphere deployed',
             date: 'all in UTC time zone for ease of conversion',
             link: 'https://youtube.com'
         },
@@ -22,8 +26,6 @@ exports.allCountries = [
             date: 'all in UTC time zone for ease of conversion',
             link: 'https://youtube.com'
         },
-      { nov: '11' },
-      { dec: '12' },
     ]
   },
   {
@@ -38,29 +40,31 @@ exports.allCountries = [
             date: 'all in UTC time zone for ease of conversion',
             link: 'https://youtube.com'
         },
-      { nov: '11' },
-      { dec: '12' },
     ]
   },
 
 ]
+exports.allCountries = [...originCountries]
+
+let parsedCan = originCountries.splice(0,1)
+console.log(parsedCan)
 
 //all year + 1 country event data
 exports.allYearsOnlyCanada = [
-    { 3500: [ {jan: '...'},{feb: '...'} ] },
+    { 3500: [ ...parsedCan ] },
     { 4000: ['...'] },
 ]
 
 //all year + all countries
 exports.allYearsAllCountries = [
-    { 3500: allCountries  },
-    { 4000: allCountries },
+    { 3500: originCountries },
+    { 4000: originCountries },
 ]
 
 
 exports.allCountriesID = [
   {
     allCountries: ['canada', 'usa'],
-    countryMetadata: [ { } ]
+    countryMetadata: [ {relatedLinks: ['/year/:year/location/:countryID']} ]
   },
 ]
