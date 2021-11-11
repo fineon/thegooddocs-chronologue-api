@@ -95,7 +95,7 @@ app.get('/location/:location', (req, res) => {
 app.get('/year/:time/location/:location', (req, res) => {
   console.log(req.params)
   // res.json(`you have sent a request to ${req.params}`)
-  req.params.time === '1990' && req.params.location=='canada' ? res.send('canada in 1990 maxtrix') : res.send('not found')
+  req.params.time === '1990' && req.params.location === 'canada' ? res.send('canada in 1990 maxtrix') : res.send('not found')
 
 })
 
