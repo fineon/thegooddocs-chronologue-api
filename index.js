@@ -2,13 +2,13 @@ const express = require('express')
 const app = express()
 const port = 8080
 const {
-  allCountries, 
-  allCountriesID 
-  } = require('./historical-events.js')
+  allCountries,
+  allCountriesID
+} = require('./historical-events.js')
 
-let allRoutes =[
-  {countries: '/allcountries'},
-  {years: '/allyears'},
+let allRoutes = [
+  { countries: '/allcountries' },
+  { years: '/allyears' },
   {}
 ]
 
@@ -90,16 +90,41 @@ app.get('/location/:location', (req, res) => {
 //   // }
 // })
 
+/**
+   * if 1990 == can return ...
+   * if 1990 == usa return ...
+   * if 1992 == can return ...
+   * if 1992 == usa return ...
+   */
+let arr1 = ['1990', '1992']
+let arr2 = ['can', 'usa']
+// let arr3 = [...req.params.time, ...req.params.location]
+let arr4 = [...arr1, ...arr2]
+let arr5 = ['1990','1992', 'can', 'usa']
+console.log(arr4)
+
+/**
+ *idea1: have 2 arrays, 1 from request, 1 from predetermined data and comprare them, if arr1[0] includes 1990 and arr2[0] includes 'can' then return the right data
+ */
+
+// arr4.forEach((item) => arr5.includes(item)? console.log(true): console.log(false))
+
+console.log(arr4.map((x) => x = 'can').includes(arr5[2]))
 
 //scaling this might be messy
 app.get('/year/:time/location/:location', (req, res) => {
   console.log(req.params)
-  // res.json(`you have sent a request to ${req.params}`)
-  req.params.time === '1990' && req.params.location === 'canada' ? res.send('canada in 1990 maxtrix') : res.send('not found')
+  // req.params.time === '1990' && req.params.location === 'canada' ? res.send('canada in 1990 maxtrix') : res.send('not found')
 
+  if (req.params.time === '1990' && req.params.location === 'canada') {
+    res.send('can 1990')
+  } else if(req.params.time === '1990' && req.params.location === 'usa'){
+    res.send('1990 usa')
+  } else {
+    res.send('time and location not found')
+  }
 })
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
-
