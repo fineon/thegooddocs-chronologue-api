@@ -19,10 +19,10 @@ let originCountries = [
         {
             event: '1st dyson sphere deployed',
             date: 'all in UTC time zone for ease of conversion',
-            link: 'https://youtube.com'
+            link: 'https://youtu.be/pP44EPBMb8A'
         },
         {
-            event: 'computer IBM announced',
+            event: 'Super computer announced',
             date: 'all in UTC time zone for ease of conversion',
             link: 'https://youtube.com'
         },
