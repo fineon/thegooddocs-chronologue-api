@@ -1,24 +1,26 @@
 const express = require('express')
 const app = express()
 const port = 8080
-const {
-  allCountries,
-  allCountriesID
-} = require('./historical-events.js')
+let {
+  allRoutes,
+  allYears,
+  allLocations,
+  allLocationsID
+} = require('./api-data.js')
 
-let allRoutes = [
-  { countries: '/allcountries' },
-  { years: '/allyears' },
-  {}
-]
+
 
 app.get('/', (req, res) => {
   res.status('200').json(allRoutes)
 })
 
 
-app.get('/allcountriesid', (req, res) => {
-  res.json(allCountriesID)
+app.get('/all-locations-id', (req, res) => {
+  res.json(allLocationsID)
+})
+
+app.get('/all-years-id', (req, res) => {
+  res.json(allYears)
 })
 
 
@@ -48,7 +50,7 @@ app.get('/year/:time', (req, res) => {
 
   switch (req.params.time) {
     case '1990':
-      res.json(allCountries)
+      res.json(allLocations)
       break;
     case '1991':
       console.log('you have requested all events in 1991 around the world')
@@ -114,7 +116,6 @@ console.log(arr4.map((x) => x = 'can').includes(arr5[2]))
 //scaling this might be messy
 app.get('/year/:time/location/:location', (req, res) => {
   console.log(req.params)
-  // req.params.time === '1990' && req.params.location === 'canada' ? res.send('canada in 1990 maxtrix') : res.send('not found')
 
   if (req.params.time === '1990' && req.params.location === 'canada') {
     res.send('can 1990')
@@ -126,5 +127,5 @@ app.get('/year/:time/location/:location', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Chronologue server API listening at http://localhost:${port}`)
 })

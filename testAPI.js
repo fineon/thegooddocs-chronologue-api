@@ -13,17 +13,17 @@ function requestsInOrder(params) {
     }
     //fetchYearandLocation().catch((err)=>console.error(err));
     
-    async function fetchOnlyLocation(params) {
+    async function fetchLocationOnly(params) {
         let result3= await axios.get('http://localhost:8080/location/canada')
         console.log(result3.data)
     }
-    //fetchOnlyLocation().catch((err)=>console.error(err));
+    //fetchLocationOnly().catch((err)=>console.error(err));
 
     async function fetchAllCountries(params) {
-        let result4= await axios.get('http://localhost:8080/allcountriesid')
+        let result4= await axios.get('http://localhost:8080/all-locations-id')
         console.log(result4.data)
     }
-    Promise.all([fetchAllCountries(), fetchOnlyLocation(),fetchYearandLocation(),fetchYearOnly()]).catch((err)=> console.error(err))
+    Promise.all([fetchAllCountries(), fetchLocationOnly(),fetchYearandLocation(),fetchYearOnly()]).catch((err)=> console.error(err))
 }
 
 requestsInOrder()
