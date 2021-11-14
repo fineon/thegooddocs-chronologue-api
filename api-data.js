@@ -45,7 +45,9 @@ let onlyYear1Location = [
   },
 
 ]
-exports.allLocations = [...onlyYear1Location]
+
+
+exports.year1Locations = [...onlyYear1Location]
 
 let parsedCan = onlyYear1Location.splice(0,1)
 console.log(parsedCan)

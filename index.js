@@ -4,7 +4,7 @@ const port = 8080
 let {
   allRoutes,
   allYears,
-  allLocations,
+  year1Locations,
   allLocationsID
 } = require('./api-data.js')
 
@@ -50,7 +50,7 @@ app.get('/year/:time', (req, res) => {
 
   switch (req.params.time) {
     case '1990':
-      res.json(allLocations)
+      res.json(year1Locations)
       break;
     case '1991':
       console.log('you have requested all events in 1991 around the world')
