@@ -1,17 +1,39 @@
+const countryList = require('./get-all-countries')
+
 /**
  * for both year + locaation resources url
  * country
  * year
- * events
  * 
  * all Location + 1 year event data
  * all years + 1 country event data
  * all year + all Location event data
  */
 
+let year4000AllLocations = [
+  {
+    Canada: null
+  }
+]
+
+
+
+
 //standardize date format
-let isoDateString = new Date().toISOString();
-console.log(isoDateString);
+const formatDateToISOString = (date) => {
+  let defaultDateFormat = new Date(date);
+  console.log(defaultDateFormat)
+
+  let isoDateString = defaultDateFormat.toISOString();
+  console.log(isoDateString);
+
+  console.log(new Date(isoDateString).toLocaleDateString('en-CA'))
+
+  return isoDateString;
+}
+
+// prevents date conversion from moving one day backward
+formatDateToISOString('2000-06-30'.replace(/-/g, '\/'))
 
 //all Location and 1 year event data
 let onlyYear1Location = [
@@ -19,7 +41,7 @@ let onlyYear1Location = [
     Canada: [
         {
             event: '1st dyson sphere deployed',
-            date: 'all in UTC time zone for ease of conversion',
+            date: '2000-09-30',
             link: 'https://youtu.be/pP44EPBMb8A'
         },
         {
@@ -43,9 +65,13 @@ let onlyYear1Location = [
         },
     ]
   },
-
 ]
 
+//all year + all Location
+exports.allYearsAllLocation = [
+  { 3500: onlyYear1Location },
+  { 4000: onlyYear1Location},
+]
 
 exports.year1Locations = [...onlyYear1Location]
 
@@ -58,35 +84,18 @@ exports.allYearsOnlyCanada = [
     { 4000: ['...'] },
 ]
 
-//all year + all Location
-exports.allYearsAllLocation = [
-    { 3500: onlyYear1Location },
-    { 4000: onlyYear1Location},
-]
 
 // GET all location data 
 exports.allLocationsID = [
   {
-    allLocation: [
-      'Sennorus',
-      'Gicephus',
-      'Bestrov',
-      'Chonzarvis',
-      'Chaenerth',
-      'Danus',
-      'Groconus',
-      'Thezibos',
-      'Grilia 87M',
-      'Sone XTMZ',
-    ],
+    allLocation: countryList,
     metadata: [ 
       {
-        relatedLinks: [
-          '/year/:year/location/:countryID'
-        ]
+        ListLength: 250,
       },
       {
-        types: ['red dwarf','main sequence yellow']
+        source: 'https://restcountries.com/#api-endpoints-v3-all',
+        liscene: 'MPL 2.0'
       } 
     ],
   },
