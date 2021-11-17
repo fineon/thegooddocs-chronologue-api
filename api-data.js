@@ -38,28 +38,28 @@ formatDateToISOString('2000-06-30'.replace(/-/g, '\/'))
 //all Location and 1 year event data
 let onlyYear1Location = [
   {
-    Canada: [
+    canada: [
         {
             event: '1st dyson sphere deployed',
             date: '2000-09-30',
             link: 'https://youtu.be/pP44EPBMb8A'
         },
         {
-            event: 'Super computer announced',
+            event: 'lorem ipson',
             date: 'all in UTC time zone for ease of conversion',
             link: 'https://youtube.com'
         },
     ]
   },
   {
-    USA: [
+    usa: [
         {
-            event: '1st computer invented',
+            event: 'ayoooo',
             date: 'all in UTC time zone for ease of conversion',
             link: 'https://youtube.com'
         },
         {
-            event: 'computer IBM announced',
+            event: 'nahhh',
             date: 'all in UTC time zone for ease of conversion',
             link: 'https://youtube.com'
         },
@@ -68,15 +68,16 @@ let onlyYear1Location = [
 ]
 
 //all year + all Location
+// SHOULD BE A SOURCE OF TRUTH FOR ALL DATA AND API CALLS
 exports.allYearsAllLocation = [
-  { 3500: onlyYear1Location },
-  { 4000: onlyYear1Location},
+  { "3500": [...onlyYear1Location] },
+  { "4000": [...onlyYear1Location] },
+  { "5000": [...onlyYear1Location] },
 ]
 
 exports.year1Locations = [...onlyYear1Location]
 
 let parsedCan = onlyYear1Location.splice(0,1)
-console.log(parsedCan)
 
 //all year + 1 country event data
 exports.allYearsOnlyCanada = [

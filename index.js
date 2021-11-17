@@ -5,7 +5,8 @@ let {
   allRoutes,
   allYears,
   year1Locations,
-  allLocationsID
+  allLocationsID,
+  allYearsAllLocation
 } = require('./api-data.js')
 
 
@@ -21,10 +22,10 @@ app.get('/all-years-id', (req, res) => {
   res.json(allYears)
 })
 
-app.get('/year/:time', (req, res) => {
+app.get('/year/:year', (req, res) => {
   console.log(req.params)
 
-  switch (req.params.time) {
+  switch (req.params.year) {
     case '1990':
       res.json(year1Locations)
       break;
@@ -52,16 +53,48 @@ app.get('/location/:location', (req, res) => {
   }
 })
 
-app.get('/year/:time/location/:location', (req, res) => {
+// app.get('/year/:year/location/:location', (req, res) => {
+//   console.log(req.params)
+
+//   if (req.params.year === '1990' && req.params.location === 'canada') {
+//     res.send('can 1990')
+//   } else if(req.params.year === '1990' && req.params.location === 'usa'){
+//     res.send('1990 usa')
+//   } else {
+//     res.send('time and location not found')
+//   }
+// })
+
+
+app.get('/year/:year/location/:location', (req, res) => {
   console.log(req.params)
 
-  if (req.params.time === '1990' && req.params.location === 'canada') {
-    res.send('can 1990')
-  } else if(req.params.time === '1990' && req.params.location === 'usa'){
-    res.send('1990 usa')
-  } else {
-    res.send('time and location not found')
+  // an algorithm that will take the params and match it to the ones in the array
+  function matchKeys() {
+
+    // allYearsAllLocation.forEach((x) => {
+    //   res.send(x[req.params.year].find((y) =>
+    //     y[req.params.location]))
+    // })
+
+   return allYearsAllLocation.find((x) => {
+      return x[req.params.year]
+        // 
+    })[req.params.year].filter((y) =>y[req.params.location])
+
+ 
+
+    // console.log(allYearsAllLocation[0]["3500"]
+    //             .find((x)=>x["usa"])
+    // )
   }
+
+  console.log(typeof matchKeys())
+  
+  res.send(
+    matchKeys()
+    //  allYearsAllLocation
+  )
 })
 
 app.listen(port, () => {
