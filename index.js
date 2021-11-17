@@ -25,6 +25,10 @@ app.get('/all-years-id', (req, res) => {
 app.get('/year/:year', (req, res) => {
   console.log(req.params)
 
+  if (!req.params.year) {
+    res.status(404).json("year url parameter not found. Enter a year or reference all available years in /all-years-id")
+  }
+
   switch (req.params.year) {
     case '1990':
       res.json(year1Locations)
@@ -72,29 +76,31 @@ app.get('/year/:year/location/:location', (req, res) => {
   // an algorithm that will take the params and match it to the ones in the array
   function matchKeys() {
 
-    // allYearsAllLocation.forEach((x) => {
-    //   res.send(x[req.params.year].find((y) =>
-    //     y[req.params.location]))
-    // })
+  /**
+  * only works with alphaAllYearsAllLocation 
+  */
+  //  return allYearsAllLocation.find((x) => {
+  //     return x[req.params.year]
+  //   })[req.params.year].filter((y) =>y[req.params.location])
 
-   return allYearsAllLocation.find((x) => {
-      return x[req.params.year]
-        // 
-    })[req.params.year].filter((y) =>y[req.params.location])
+  /**
+   this works well with experimentalData, but annoying to reuturn an array with 1 obj. Just need to return an object 
+  */
+  // return allYearsAllLocation.filter((x)=> x.year === req.params.year)[0].allCountries.filter((y)=> y.country === req.params.location)
 
- 
+  /**
+   * this logic will return the actual object without a redundant array
+   */
+  allYearsAllLocation.forEach((x)=> x.year === req.params.year? x.allCountries.forEach((y)=> y.country === req.params.location? res.json(y.events) : null) : null)
 
-    // console.log(allYearsAllLocation[0]["3500"]
-    //             .find((x)=>x["usa"])
-    // )
   }
 
   console.log(typeof matchKeys())
   
-  res.send(
-    matchKeys()
-    //  allYearsAllLocation
-  )
+  // res.send(
+  //   matchKeys()
+  //   //  allYearsAllLocation
+  // )
 })
 
 app.listen(port, () => {

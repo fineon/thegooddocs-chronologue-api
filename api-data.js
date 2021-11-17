@@ -39,50 +39,128 @@ formatDateToISOString('2000-06-30'.replace(/-/g, '\/'))
 let onlyYear1Location = [
   {
     canada: [
-        {
-            event: '1st dyson sphere deployed',
-            date: '2000-09-30',
-            link: 'https://youtu.be/pP44EPBMb8A'
-        },
-        {
-            event: 'lorem ipson',
-            date: 'all in UTC time zone for ease of conversion',
-            link: 'https://youtube.com'
-        },
+      {
+        event: '1st dyson sphere deployed',
+        date: '2000-09-30',
+        link: 'https://youtu.be/pP44EPBMb8A'
+      },
+      {
+        event: 'lorem ipson',
+        date: 'all in UTC time zone for ease of conversion',
+        link: 'https://youtube.com'
+      },
     ]
   },
   {
     usa: [
-        {
-            event: 'ayoooo',
-            date: 'all in UTC time zone for ease of conversion',
-            link: 'https://youtube.com'
-        },
-        {
-            event: 'nahhh',
-            date: 'all in UTC time zone for ease of conversion',
-            link: 'https://youtube.com'
-        },
+      {
+        event: 'ayoooo',
+        date: 'all in UTC time zone for ease of conversion',
+        link: 'https://youtube.com'
+      },
+      {
+        event: 'nahhh',
+        date: 'all in UTC time zone for ease of conversion',
+        link: 'https://youtube.com'
+      },
     ]
   },
 ]
 
-//all year + all Location
-// SHOULD BE A SOURCE OF TRUTH FOR ALL DATA AND API CALLS
-exports.allYearsAllLocation = [
+let alphaAllYearsAllLocation = [
   { "3500": [...onlyYear1Location] },
   { "4000": [...onlyYear1Location] },
   { "5000": [...onlyYear1Location] },
 ]
 
+let experimentalData = [
+  {
+    year: "5000",
+    allCountries: [
+      {
+        country: "canada",
+        events: [
+          {
+            event: "blablabla",
+            date: "123/23123/323",
+            links: "aasd",
+          },
+          {
+            event: "blablabla",
+            date: "123/23123/323",
+            links: "aasd",
+          }
+        ],
+      },
+      {
+        country: "usa",
+        events: [
+          {
+            event: "yus",
+            date: "123/23123/323",
+            links: "aasd",
+          },
+          {
+            event: "the usa",
+            date: "123/23123/323",
+            links: "aasd",
+          }
+        ],
+      },
+    ],
+  },
+  {
+    year: "6000",
+    allCountries: [
+      {
+        country: "canada",
+        events: [
+          {
+            event: "yabadabadooo",
+            date: "123/23123/323",
+            links: "aasd",
+          },
+          {
+            event: "ayyy year 600",
+            date: "123/23123/323",
+            links: "aasd",
+          }
+        ],
+      },
+      {
+        country: "usa",
+        events: [
+          {
+            event: "its 6000",
+            date: "123/23123/323",
+            links: "aasd",
+          },
+          {
+            event: "the usa 6000",
+            date: "123/23123/323",
+            links: "aasd",
+          }
+        ],
+      },
+    ],
+  },
+
+]
+
+//all year + all Location
+// SHOULD BE A SOURCE OF TRUTH FOR ALL DATA AND API CALLS
+exports.allYearsAllLocation = [
+  ...experimentalData
+]
+
 exports.year1Locations = [...onlyYear1Location]
 
-let parsedCan = onlyYear1Location.splice(0,1)
+let parsedCan = onlyYear1Location.splice(0, 1)
 
 //all year + 1 country event data
 exports.allYearsOnlyCanada = [
-    { 3500: [ ...parsedCan ] },
-    { 4000: ['...'] },
+  { 3500: [...parsedCan] },
+  { 4000: ['...'] },
 ]
 
 
@@ -90,14 +168,14 @@ exports.allYearsOnlyCanada = [
 exports.allLocationsID = [
   {
     allLocation: countryList,
-    metadata: [ 
+    metadata: [
       {
         ListLength: 250,
       },
       {
         source: 'https://restcountries.com/#api-endpoints-v3-all',
         liscene: 'MPL 2.0'
-      } 
+      }
     ],
   },
 ]
@@ -111,5 +189,6 @@ exports.allYears = [
 exports.allRoutes = [
   { locations: '/all-locations-id' },
   { years: '/all-years-id' },
-  { locationAndYears: '/year/:year-id/location/:location-id'}
+  { locationAndYears: '/year/:year-id/location/:location-id' }
 ]
+
