@@ -10,15 +10,6 @@ const countryList = require('./get-all-countries')
  * all year + all Location event data
  */
 
-let year4000AllLocations = [
-  {
-    Canada: null
-  }
-]
-
-
-
-
 //standardize date format
 const formatDateToISOString = (date) => {
   let defaultDateFormat = new Date(date);
@@ -34,44 +25,6 @@ const formatDateToISOString = (date) => {
 
 // prevents date conversion from moving one day backward
 formatDateToISOString('2000-06-30'.replace(/-/g, '\/'))
-
-//all Location and 1 year event data
-let onlyYear1Location = [
-  {
-    canada: [
-      {
-        event: '1st dyson sphere deployed',
-        date: '2000-09-30',
-        link: 'https://youtu.be/pP44EPBMb8A'
-      },
-      {
-        event: 'lorem ipson',
-        date: 'all in UTC time zone for ease of conversion',
-        link: 'https://youtube.com'
-      },
-    ]
-  },
-  {
-    usa: [
-      {
-        event: 'ayoooo',
-        date: 'all in UTC time zone for ease of conversion',
-        link: 'https://youtube.com'
-      },
-      {
-        event: 'nahhh',
-        date: 'all in UTC time zone for ease of conversion',
-        link: 'https://youtube.com'
-      },
-    ]
-  },
-]
-
-let alphaAllYearsAllLocation = [
-  { "3500": [...onlyYear1Location] },
-  { "4000": [...onlyYear1Location] },
-  { "5000": [...onlyYear1Location] },
-]
 
 let experimentalData = [
   {
@@ -150,17 +103,6 @@ let experimentalData = [
 //all year + all Location
 // SHOULD BE A SOURCE OF TRUTH FOR ALL DATA AND API CALLS
 exports.allYearsAllLocation = [...experimentalData]
-
-// not in use at the moment
-exports.year1Locations = [...onlyYear1Location]
-
-let parsedCan = onlyYear1Location.splice(0, 1)
-
-//all year + 1 country event data
-exports.allYearsOnlyCanada = [
-  { 3500: [...parsedCan] },
-  { 4000: ['...'] },
-]
 
 
 // GET all location data 
