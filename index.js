@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/all-locations-id', (req, res) => {
-  resstatus(200).json(allLocationsID)
+  res.status(200).json(allLocationsID)
 })
 
 app.get('/all-years-id', (req, res) => {
@@ -38,7 +38,9 @@ app.get('/year/:year', (req, res) => {
    * UPDATE: can replace map() with flatMap() to remove that redundant object
   */
   let yearlyDataOnly = allYearsAllLocation.flatMap((data)=> data.year === req.params.year? data.allCountries : [])
-  res.status(200).json(yearlyDataOnly)
+  
+  //error handling for invalid route
+  yearlyDataOnly.length === 0 ? res.status(404).json("data not found. Check your request parameter again or reference the API routes docs") : res.status(200).json(yearlyDataOnly)
 
   // switch (req.params.year) {
   //   case '1990':
@@ -60,11 +62,11 @@ app.get('/location/:location', (req, res) => {
       year: x.year,
       events: x.allCountries.flatMap((y) => y.country === req.params.location ? y.events : [])
     }
-
   }
   )
 
-  res.status(200).json(test1)
+  // error handling for invalid rote params 
+  test1[0].events.length === 0 ? res.status(404).json("data not found. Check your request parameter again or reference the API routes docs") : res.status(200).json(test1)
 
   // switch (req.params.location) {
   //   case 'canada':
@@ -123,9 +125,11 @@ app.get('/year/:year/location/:location', (req, res) => {
   // allYearsAllLocation.forEach((x) => x.year === req.params.year ? x.allCountries.forEach((y) => y.country === req.params.location ? res.json(y.events) : null) : null)
 
   // also works fine, even when there are invalid params
-  let oDataMine = allYearsAllLocation.flatMap((x) => x.year === req.params.year ? x.allCountries.flatMap((y) => y.country === req.params.location ? y.events : []) : [])
+  let yearAndLocationData = allYearsAllLocation.flatMap((x) => x.year === req.params.year ? x.allCountries.flatMap((y) => y.country === req.params.location ? y.events : []) : [])
 
-  res.json(oDataMine)
+  //lint for invalid params or non-existent data
+  yearAndLocationData.length === 0 ? res.status(404).json("data not found. Check your request parameter again or reference the API routes docs") : res.status(200).json(yearAndLocationData)
+
   // res.send(
   //   matchKeys()
   //   //  allYearsAllLocation
