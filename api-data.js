@@ -149,10 +149,9 @@ let experimentalData = [
 
 //all year + all Location
 // SHOULD BE A SOURCE OF TRUTH FOR ALL DATA AND API CALLS
-exports.allYearsAllLocation = [
-  ...experimentalData
-]
+exports.allYearsAllLocation = [...experimentalData]
 
+// not in use at the moment
 exports.year1Locations = [...onlyYear1Location]
 
 let parsedCan = onlyYear1Location.splice(0, 1)
