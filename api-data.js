@@ -10,32 +10,25 @@ const countryList = require('./get-all-countries')
  * all year + all Location event data
  */
 
-let year4000AllLocations = [
-  {
-    Canada: null
-  }
-]
-
-
-
 
 //standardize date format
 const formatDateToISOString = (date) => {
-  let defaultDateFormat = new Date(date);
-  console.log(defaultDateFormat)
-
-  let isoDateString = defaultDateFormat.toISOString();
+  let isoDateString = new Date(date).toISOString();
   console.log(isoDateString);
-
-  console.log(new Date(isoDateString).toLocaleDateString('en-CA'))
 
   return isoDateString;
 }
 
-// prevents date conversion from moving one day backward
-formatDateToISOString('2000-06-30'.replace(/-/g, '\/'))
+/**
+ * NOTE: MUST use .replace(/-/g, '\/') in date string before parsing it in UTC timezone to get the correct date
+ * example:
+ * console.log(new Date('2000-06-30').replace(/-/g, '\/').toLocaleDateString('en-CA'))
+ */
 
-//all Location and 1 year event data
+// prevents date conversion from moving one day backward
+formatDateToISOString('2000-06-30')
+
+//all Location and 1 year event data. All dates are in format: YYYY-MM-DD
 let onlyYear1Location = [
   {
     canada: [
