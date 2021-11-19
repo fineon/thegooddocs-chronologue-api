@@ -32,7 +32,7 @@ app.get('/year/:year', (req, res) => {
   /**this returns a redundant empty object. Could be a little faster with map() but not worth the confusion for the user 
    * UPDATE: can replace map() with flatMap() to remove that redundant object
   */
-  let yearlyDataOnly = allYearsAllLocation.flatMap((data)=> data.year === req.params.year? data.allCountries : [])
+  let yearlyDataOnly = allYearsAllLocation.flatMap((data)=> data.year === req.params.year? data.allContinents : [])
   
   //error handling for invalid route
   yearlyDataOnly.length === 0 ? res.status(404).json("data not found. Check your request parameter again or reference the API routes docs") : res.status(200).json(yearlyDataOnly)
@@ -44,7 +44,7 @@ app.get('/location/:location', (req, res) => {
   let test1 = allYearsAllLocation.map((x) => {
     return {
       year: x.year,
-      events: x.allCountries.flatMap((y) => y.country === req.params.location ? y.events : [])
+      events: x.allContinents.flatMap((y) => y.continent === req.params.location ? y.events : [])
     }
   }
   )
@@ -64,7 +64,7 @@ app.get('/year/:year/location/:location', (req, res) => {
   }
 
   // also works fine, even when there are invalid params
-  let yearAndLocationData = allYearsAllLocation.flatMap((x) => x.year === req.params.year ? x.allCountries.flatMap((y) => y.country === req.params.location ? y.events : []) : [])
+  let yearAndLocationData = allYearsAllLocation.flatMap((x) => x.year === req.params.year ? x.allContinents.flatMap((y) => y.continent === req.params.location ? y.events : []) : [])
 
   //lint for invalid params or non-existent data
   yearAndLocationData.length === 0 ? res.status(404).json("data not found. Check your request parameter again or reference the API routes docs") : res.status(200).json(yearAndLocationData)

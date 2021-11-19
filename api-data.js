@@ -26,72 +26,119 @@ const formatDateToISOString = (date) => {
 // prevents date conversion from moving one day backward
 formatDateToISOString('2000-06-30'.replace(/-/g, '\/'))
 
+//sorted from past to future
 let experimentalData = [
   {
-    year: "5000",
-    allCountries: [
+    year: "2300BCE",
+    allContinents: [
       {
-        country: "canada",
+        continent: "africa",
         events: [
           {
-            event: "blablabla",
-            date: "123/23123/323",
-            links: "aasd",
+            event: "humans moved away from Africa to non-icy areas in Europe and Asia",
+            date: "60000BCE",
+            links: "",
           },
           {
-            event: "blablabla",
-            date: "123/23123/323",
-            links: "aasd",
+            event: "signs of deity worship and religious practices observed in Egypt",
+            date: "2300BCE",
+            links: "",
+          },
+          {
+            event: "invention of math, bronze tools, woven clothing, writing in Egypt",
+            date: "3250BCE",
+            links: "",
+          },
+          
+        ],
+      },
+      {
+        continent: "asia",
+        events: [
+          {
+            event: "The Yellow River valley in China cultivated millet and other cereal crops",
+            date: "7000BCE",
+            links: "",
+          },
+          {
+            event: "Rise of Chinese civilization along the Yellow and Yangtze Rivers",
+            date: "2200BCE",
+            links: "",
           }
         ],
       },
       {
-        country: "usa",
+        continent: "europe",
         events: [
           {
             event: "yus",
             date: "123/23123/323",
-            links: "aasd",
+            links: "",
           },
           {
             event: "the usa",
             date: "123/23123/323",
-            links: "aasd",
-          }
-        ],
-      },
-    ],
-  },
-  {
-    year: "6000",
-    allCountries: [
-      {
-        country: "canada",
-        events: [
-          {
-            event: "yabadabadooo",
-            date: "123/23123/323",
-            links: "aasd",
-          },
-          {
-            event: "ayyy year 600",
-            date: "123/23123/323",
-            links: "aasd",
+            links: "",
           }
         ],
       },
       {
-        country: "usa",
+        continent: "north-america",
         events: [
           {
-            event: "its 6000",
-            date: "123/23123/323",
-            links: "aasd",
+            event: "sunflowers were cultivated",
+            date: "4000BCE",
+            links: "",
           },
           {
-            event: "the usa 6000",
+            event: "the usa",
             date: "123/23123/323",
-            links: "aasd",
+            links: "",
+          }
+        ],
+      },
+      {
+        continent: "south-america",
+        events: [
+          {
+            event: "Potatoes were first cultivated in the Andes Mountains of South America, where the llama was also domesticated",
+            date: "6000BCE",
+            links: "",
+          },
+          {
+            event: "Metalworking was first used in the creation of copper tools and ornaments",
+            date: "6000BCE",
+            links: "",
+          }
+        ],
+      },
+      {
+        continent: "oceania",
+        events: [
+          {
+            event: "yus",
+            date: "123/23123/323",
+            links: "",
+          },
+          {
+            event: "the usa",
+            date: "123/23123/323",
+            links: "",
+          }
+        ],
+      },
+      {
+        continent: "antartica",
+        events: [
+          {
+            event: "yus",
+            date: "123/23123/323",
+            links: "",
+          },
+          {
+            event: "the usa",
+            date: "123/23123/323",
+            links: "",
           }
         ],
       },
@@ -108,14 +155,23 @@ exports.allYearsAllLocation = [...experimentalData]
 // GET all location data 
 exports.allLocationsID = [
   {
-    allLocation: countryList,
+    allLocation: [
+      'asia',
+      'africa',
+      'europe',
+      'north america',
+      'south america',
+      'oceania',
+      'antartica',
+    ],
     metadata: [
       {
-        ListLength: 250,
+        listLength: 7,
       },
       {
-        source: 'https://restcountries.com/#api-endpoints-v3-all',
-        liscene: 'MPL 2.0'
+        source: 'https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population',
+        liscene: 'CC BY-SA 3.0',
+        link: 'https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License'
       }
     ],
   },
@@ -123,7 +179,7 @@ exports.allLocationsID = [
 
 //GET all year data
 exports.allYears = [
-  5262, 4598, 3856, 2355, 7853,
+  "2300BCE"
 ]
 
 //GET all available API routes
