@@ -44,7 +44,7 @@ app.get('/location/:location', (req, res) => {
   let test1 = allYearsAllLocation.map((x) => {
     return {
       year: x.year,
-      events: x.allCountries.flatMap((y) => y.country === req.params.location ? y.events : [])
+      events: x.allCountries.flatMap((y) => y.planet === req.params.location ? y.events : [])
     }
   }
   )
@@ -64,7 +64,7 @@ app.get('/year/:year/location/:location', (req, res) => {
   }
 
   // also works fine, even when there are invalid params
-  let yearAndLocationData = allYearsAllLocation.flatMap((x) => x.year === req.params.year ? x.allCountries.flatMap((y) => y.country === req.params.location ? y.events : []) : [])
+  let yearAndLocationData = allYearsAllLocation.flatMap((x) => x.year === req.params.year ? x.allLocations.flatMap((y) => y.planet === req.params.location ? y.events : []) : [])
 
   //lint for invalid params or non-existent data
   yearAndLocationData.length === 0 ? res.status(404).json("data not found. Check your request parameter again or reference the API routes docs") : res.status(200).json(yearAndLocationData)

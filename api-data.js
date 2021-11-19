@@ -1,12 +1,12 @@
-const countryList = require('./get-all-countries')
+const planetList = require('./get-all-countries')
 
 /**
  * for both year + locaation resources url
- * country
+ * planet
  * year
  * 
  * all Location + 1 year event data
- * all years + 1 country event data
+ * all years + 1 planet event data
  * all year + all Location event data
  */
 
@@ -28,71 +28,106 @@ formatDateToISOString('2000-06-30'.replace(/-/g, '\/'))
 
 let experimentalData = [
   {
-    year: "5000",
-    allCountries: [
+    year: "1990",
+    allLocations: [
       {
-        country: "canada",
+        planet: "MTX120",
         events: [
           {
-            event: "blablabla",
-            date: "123/23123/323",
-            links: "aasd",
+            event: "Violent storm activities constantly form and terminate due to harsh winds and extreme temperature changes",
+            date: "1990",
+            links: "",
           },
-          {
-            event: "blablabla",
-            date: "123/23123/323",
-            links: "aasd",
-          }
         ],
       },
       {
-        country: "usa",
+        planet: "XER491",
         events: [
           {
-            event: "yus",
-            date: "123/23123/323",
-            links: "aasd",
+            event: "began to form small colonies of primal life",
+            date: "1990",
+            links: "",
           },
+        ],
+      },
+      {
+        planet: "BN110",
+        events: [
           {
-            event: "the usa",
-            date: "123/23123/323",
-            links: "aasd",
-          }
+            event: "stabilizing its fusion core",
+            date: "1990",
+            links: "",
+          },
         ],
       },
     ],
   },
   {
-    year: "6000",
-    allCountries: [
+    year: "2019",
+    allLocations: [
       {
-        country: "canada",
+        planet: "MTX120",
         events: [
           {
-            event: "yabadabadooo",
-            date: "123/23123/323",
-            links: "aasd",
+            event: "MTX120 encounters an asteroid impact from its nearby asteroid belt",
+            date: "2019",
+            links: "",
           },
-          {
-            event: "ayyy year 600",
-            date: "123/23123/323",
-            links: "aasd",
-          }
         ],
       },
       {
-        country: "usa",
+        planet: "BN110",
         events: [
           {
-            event: "its 6000",
-            date: "123/23123/323",
-            links: "aasd",
+            event: "BN110 is now a main sequence yellow star, providing stable heat and light to its nearby planets",
+            date: "2019",
+            links: "",
           },
+        ],
+      },
+      {
+        planet: "XER491",
+        events: [
           {
-            event: "the usa 6000",
-            date: "123/23123/323",
-            links: "aasd",
-          }
+            event: "XER491 is exhibiting signs of life. An insect-like species is thriving in a tropical-like climate and habitat",
+            date: "2019",
+            links: "",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: "5000",
+    allLocations: [
+      {
+        planet: "MTX120",
+        events: [
+          {
+            event: "MTX120 is showing signs of water vapours from its last asteroid impact, now sustaining small water puddles encounters an asteroid impact from its nearby asteroid belt",
+            date: "5000",
+            links: "",
+          },
+        ],
+      },
+      {
+        planet: "BN110",
+        events: [
+          {
+            event: "BN110 is reaching supernova, soon to be a white dwarf",
+            date: "5000",
+            links: "",
+          },
+        ],
+      },
+      {
+        planet: "XER491",
+        events: [
+          {
+            event: " XER491 is encountering a food-crisis due to extended temperature cool down, life still exists but dwindling. Current population have began migrating to another planets from the created wormholes. ",
+            date: "5500",
+            links: "",
+          },
         ],
       },
     ],
@@ -108,7 +143,7 @@ exports.allYearsAllLocation = [...experimentalData]
 // GET all location data 
 exports.allLocationsID = [
   {
-    allLocation: countryList,
+    allLocation: planetList,
     metadata: [
       {
         ListLength: 250,
@@ -122,9 +157,7 @@ exports.allLocationsID = [
 ]
 
 //GET all year data
-exports.allYears = [
-  5262, 4598, 3856, 2355, 7853,
-]
+exports.allYears = [ 1990, 2019, 5000 ]
 
 //GET all available API routes
 exports.allRoutes = [
