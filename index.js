@@ -49,9 +49,10 @@ app.get('/location/:location', (req, res) => {
   }
   )
 
-  // error handling for invalid rote params 
-  test1[0].events.length === 0 ? res.status(404).json("data not found. Check your request parameter again or reference the API routes docs") : res.status(200).json(test1)
+  // error handling for invalid rote params. This one doesn't work well if the data is on index > 0 
+  // test1[0].events.length === 0 ? res.status(404).json("data not found. Check your request parameter again or reference the API routes docs") : res.status(200).json(test1)
 
+  res.status(200).json(test1)
 })
 
 

@@ -18,128 +18,137 @@ const formatDateToISOString = (date) => {
   let isoDateString = defaultDateFormat.toISOString();
   console.log(isoDateString);
 
-  console.log(new Date(isoDateString).toLocaleDateString('en-CA'))
-
   return isoDateString;
 }
 
+const formatUTCDatetoLocale = (date) => {
+  let sentIsoDate = date.replace(/-/g, '\/').replace(/T.+/, '');
+  let toLocaleDateString = new Date(sentIsoDate).toLocaleDateString();
+  console.log(toLocaleDateString);
+  return toLocaleDateString;
+}
+
 // prevents date conversion from moving one day backward
-formatDateToISOString('2000-06-30'.replace(/-/g, '\/'))
+
 
 //sorted from past to future
 let experimentalData = [
   {
-    year: "2300BCE",
+    year: "1968",
     allContinents: [
-      {
-        continent: "africa",
-        events: [
-          {
-            event: "humans moved away from Africa to non-icy areas in Europe and Asia",
-            date: "60000BCE",
-            links: "",
-          },
-          {
-            event: "signs of deity worship and religious practices observed in Egypt",
-            date: "2300BCE",
-            links: "",
-          },
-          {
-            event: "invention of math, bronze tools, woven clothing, writing in Egypt",
-            date: "3250BCE",
-            links: "",
-          },
-          
-        ],
-      },
-      {
-        continent: "asia",
-        events: [
-          {
-            event: "The Yellow River valley in China cultivated millet and other cereal crops",
-            date: "7000BCE",
-            links: "",
-          },
-          {
-            event: "Rise of Chinese civilization along the Yellow and Yangtze Rivers",
-            date: "2200BCE",
-            links: "",
-          }
-        ],
-      },
       {
         continent: "europe",
         events: [
           {
-            event: "yus",
-            date: "123/23123/323",
-            links: "",
+            event: "The Orbiting Astronomical Observatory 2 was the first space telescope launched",
+            date: formatDateToISOString('1968-12-07'),
+            links: "https://en.wikipedia.org/wiki/Space_exploration#Telescope",
           },
-          {
-            event: "the usa",
-            date: "123/23123/323",
-            links: "",
-          }
         ],
       },
+    ],
+  },
+  {
+    year: "1957",
+    allContinents: [
+      {
+        continent: "europe",
+        events: [
+          {
+            event: "The first successful orbital launch was of the Soviet uncrewed Sputnik 1 mission",
+            date: formatDateToISOString('1957-10-04'),
+            links: "https://en.wikipedia.org/wiki/Space_exploration#Telescope",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: "1961",
+    allContinents: [
+      {
+        continent: "europe",
+        events: [
+          {
+            event: "The first successful human spaceflight was Vostok 1, carrying the 27-year-old Russian cosmonaut, Yuri Gagarin",
+            date: formatDateToISOString('1961-04-12'),
+            links: "https://en.wikipedia.org/wiki/Space_exploration#Telescope",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: "2012",
+    allContinents: [
+      {
+        continent: "europe",
+        events: [
+          {
+            event: "Voyager 1 became the first human-made object to leave the Solar System into interstellar space",
+            date: formatDateToISOString('2012-08-25'),
+            links: "https://en.wikipedia.org/wiki/Space_exploration#Telescope",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: "2021",
+    allContinents: [
       {
         continent: "north-america",
         events: [
           {
-            event: "sunflowers were cultivated",
-            date: "4000BCE",
-            links: "",
+            event: "NASA Perseverance rover landed on Mars to find clues on past microbial life",
+            date: formatDateToISOString('2021-02-18'),
+            links: "https://www.nasa.gov/press-release/nasa-invites-public-to-share-thrill-of-mars-perseverance-rover-landing",
           },
-          {
-            event: "the usa",
-            date: "123/23123/323",
-            links: "",
-          }
         ],
       },
+    ],
+  },
+  {
+    year: "2024",
+    allContinents: [
       {
-        continent: "south-america",
+        continent: "north-america",
         events: [
           {
-            event: "Potatoes were first cultivated in the Andes Mountains of South America, where the llama was also domesticated",
-            date: "6000BCE",
-            links: "",
+            event: "NASA Artemis mission sending the first woman and man to the Moon by 2024",
+            date: formatDateToISOString('2024'),
+            links: "https://www.nasa.gov/specials/artemis/",
           },
-          {
-            event: "Metalworking was first used in the creation of copper tools and ornaments",
-            date: "6000BCE",
-            links: "",
-          }
         ],
       },
+    ],
+  },
+  {
+    year: "3000",
+    allContinents: [
       {
-        continent: "oceania",
+        continent: "asia",
         events: [
           {
-            event: "yus",
-            date: "123/23123/323",
+            event: "Malaysia's first expedition sattelite discovered alien life outside of the solar system",
+            date: formatDateToISOString('3000-12-05'),
             links: "",
           },
-          {
-            event: "the usa",
-            date: "123/23123/323",
-            links: "",
-          }
         ],
       },
+    ],
+  },
+  {
+    year: "6000",
+    allContinents: [
       {
-        continent: "antartica",
+        continent: "mars",
         events: [
           {
-            event: "yus",
-            date: "123/23123/323",
+            event: "Humankind terraforms and settles on Mars in an underground colony",
+            date: formatDateToISOString('6000-05-20'),
             links: "",
           },
-          {
-            event: "the usa",
-            date: "123/23123/323",
-            links: "",
-          }
         ],
       },
     ],
