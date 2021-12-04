@@ -71,7 +71,7 @@ let experimentalData = [
           {
             event: "MTX120 encounters an asteroid impact from its nearby asteroid belt",
             date: "2019",
-            links: "",
+            links: "https://en.wikipedia.org/wiki/Asteroid",
           },
         ],
       },
@@ -92,6 +92,7 @@ let experimentalData = [
             event: "XER491 is exhibiting signs of life. An insect-like species is thriving in a tropical-like climate and habitat",
             date: "2019",
             links: "",
+            futureEvent: "/localhost:8080/year/5000/location/XER491",
           },
         ],
       },
