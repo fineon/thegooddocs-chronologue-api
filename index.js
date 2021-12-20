@@ -29,9 +29,9 @@ app.get('/year/:year', (req, res) => {
     res.status(404).json("year url parameter not found. Enter a year or reference all available years in /all-years-id");
   }
 
-  /**this returns a redundant empty object. Could be a little faster with map() but not worth the confusion for the user 
+  /** this returns a redundant empty object. Could be a little faster with map() but not worth the confusion for the user 
    * UPDATE: can replace map() with flatMap() to remove that redundant object
-  */
+   */
   let yearlyDataOnly = allYearsAllLocation.flatMap((data)=> data.year === req.params.year? data.allContinents : []);
 
   // error handling for invalid route
