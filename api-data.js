@@ -1,167 +1,165 @@
-const countryList = require('./get-all-countries')
-
 /**
  * for both year + locaation resources url
  * country
  * year
- * 
+ *
  * all Location + 1 year event data
  * all years + 1 country event data
  * all year + all Location event data
  */
 
-//standardize date format
+// standardize date format
 const formatDateToISOString = (date) => {
   let defaultDateFormat = new Date(date);
-  console.log(defaultDateFormat)
+  console.log(defaultDateFormat);
 
   let isoDateString = defaultDateFormat.toISOString();
   console.log(isoDateString);
 
   return isoDateString;
-}
+};
 
 const formatUTCDatetoLocale = (date) => {
   let sentIsoDate = date.replace(/-/g, '\/').replace(/T.+/, '');
   let toLocaleDateString = new Date(sentIsoDate).toLocaleDateString();
   console.log(toLocaleDateString);
   return toLocaleDateString;
-}
+};
 
 // prevents date conversion from moving one day backward
 
 
-//sorted from past to future
+// sorted from past to future
 let experimentalData = [
   {
-    year: "1968",
+    year: '1968',
     allContinents: [
       {
-        continent: "europe",
+        continent: 'europe',
         events: [
           {
-            event: "The Orbiting Astronomical Observatory 2 was the first space telescope launched",
+            event: 'The Orbiting Astronomical Observatory 2 was the first space telescope launched',
             date: formatDateToISOString('1968-12-07'),
-            links: "https://en.wikipedia.org/wiki/Space_exploration#Telescope",
+            links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
           },
         ],
       },
     ],
   },
   {
-    year: "1957",
+    year: '1957',
     allContinents: [
       {
-        continent: "europe",
+        continent: 'europe',
         events: [
           {
-            event: "The first successful orbital launch was of the Soviet uncrewed Sputnik 1 mission",
+            event: 'The first successful orbital launch was of the Soviet uncrewed Sputnik 1 mission',
             date: formatDateToISOString('1957-10-04'),
-            links: "https://en.wikipedia.org/wiki/Space_exploration#Telescope",
+            links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
           },
         ],
       },
     ],
   },
   {
-    year: "1961",
+    year: '1961',
     allContinents: [
       {
-        continent: "europe",
+        continent: 'europe',
         events: [
           {
-            event: "The first successful human spaceflight was Vostok 1, carrying the 27-year-old Russian cosmonaut, Yuri Gagarin",
+            event: 'The first successful human spaceflight was Vostok 1, carrying the 27-year-old Russian cosmonaut, Yuri Gagarin',
             date: formatDateToISOString('1961-04-12'),
-            links: "https://en.wikipedia.org/wiki/Space_exploration#Telescope",
+            links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
           },
         ],
       },
     ],
   },
   {
-    year: "2012",
+    year: '2012',
     allContinents: [
       {
-        continent: "europe",
+        continent: 'europe',
         events: [
           {
-            event: "Voyager 1 became the first human-made object to leave the Solar System into interstellar space",
+            event: 'Voyager 1 became the first human-made object to leave the Solar System into interstellar space',
             date: formatDateToISOString('2012-08-25'),
-            links: "https://en.wikipedia.org/wiki/Space_exploration#Telescope",
+            links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
           },
         ],
       },
     ],
   },
   {
-    year: "2021",
+    year: '2021',
     allContinents: [
       {
-        continent: "north-america",
+        continent: 'north-america',
         events: [
           {
-            event: "NASA Perseverance rover landed on Mars to find clues on past microbial life",
+            event: 'NASA Perseverance rover landed on Mars to find clues on past microbial life',
             date: formatDateToISOString('2021-02-18'),
-            links: "https://www.nasa.gov/press-release/nasa-invites-public-to-share-thrill-of-mars-perseverance-rover-landing",
+            links: 'https://www.nasa.gov/press-release/nasa-invites-public-to-share-thrill-of-mars-perseverance-rover-landing',
           },
         ],
       },
     ],
   },
   {
-    year: "2024",
+    year: '2024',
     allContinents: [
       {
-        continent: "north-america",
+        continent: 'north-america',
         events: [
           {
-            event: "NASA Artemis mission sending the first woman and man to the Moon by 2024",
+            event: 'NASA Artemis mission sending the first woman and man to the Moon by 2024',
             date: formatDateToISOString('2024'),
-            links: "https://www.nasa.gov/specials/artemis/",
+            links: 'https://www.nasa.gov/specials/artemis/',
           },
         ],
       },
     ],
   },
   {
-    year: "3000",
+    year: '3000',
     allContinents: [
       {
-        continent: "asia",
+        continent: 'asia',
         events: [
           {
-            event: "Malaysia's first expedition sattelite discovered alien life outside of the solar system",
+            event: 'Malaysia\'s first expedition sattelite discovered alien life outside of the solar system',
             date: formatDateToISOString('3000-12-05'),
-            links: "",
+            links: '',
           },
         ],
       },
     ],
   },
   {
-    year: "6000",
+    year: '6000',
     allContinents: [
       {
-        continent: "mars",
+        continent: 'mars',
         events: [
           {
-            event: "Humankind terraforms and settles on Mars in an underground colony",
+            event: 'Humankind terraforms and settles on Mars in an underground colony',
             date: formatDateToISOString('6000-05-20'),
-            links: "",
+            links: '',
           },
         ],
       },
     ],
   },
 
-]
+];
 
-//all year + all Location
+// all year + all Location
 // SHOULD BE A SOURCE OF TRUTH FOR ALL DATA AND API CALLS
-exports.allYearsAllLocation = [...experimentalData]
+exports.allYearsAllLocation = [...experimentalData];
 
 
-// GET all location data 
+// GET all location data
 exports.allLocationsID = [
   {
     allLocation: [
@@ -180,21 +178,21 @@ exports.allLocationsID = [
       {
         source: 'https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population',
         liscene: 'CC BY-SA 3.0',
-        link: 'https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License'
-      }
+        link: 'https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License',
+      },
     ],
   },
-]
+];
 
-//GET all year data
+// GET all year data
 exports.allYears = [
-  "2300BCE"
-]
+  '2300BCE',
+];
 
-//GET all available API routes
+// GET all available API routes
 exports.allRoutes = [
-  { locations: '/all-locations-id' },
-  { years: '/all-years-id' },
-  { locationAndYears: '/year/:year-id/location/:location-id' }
-]
+  {locations: '/all-locations-id'},
+  {years: '/all-years-id'},
+  {locationAndYears: '/year/:year-id/location/:location-id'},
+];
 
