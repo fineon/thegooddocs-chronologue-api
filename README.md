@@ -9,10 +9,14 @@ npm start
 # run test api HTTP requests
 npm run test
 ```
+If you use VSCode, install the plugin ESLint and Prettier to integrate the API workflow nicely with VSCode.
 
 ## To-do list for API development
 - Create a good database model/schema for JSON response objects
-- Look for real events in computer history and apply them to the JSON objects
+- enter the years data for all years route
+- add "country" field to the data
+- add "image", "video" fields to the data
+- research a way to filter events by a direct date
 - 
 
 ## Refeferences

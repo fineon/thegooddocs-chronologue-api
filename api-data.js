@@ -53,7 +53,7 @@ let experimentalData = [
         continent: 'europe',
         events: [
           {
-            event: 'The first successful orbital launch was of the Soviet uncrewed Sputnik 1 mission',
+            event: 'The first successful orbital launch of the Soviet uncrewed Sputnik 1 mission',
             date: formatDateToISOString('1957-10-04'),
             links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
           },
@@ -121,37 +121,6 @@ let experimentalData = [
       },
     ],
   },
-  {
-    year: '3000',
-    allContinents: [
-      {
-        continent: 'asia',
-        events: [
-          {
-            event: 'Malaysia\'s first expedition sattelite discovered alien life outside of the solar system',
-            date: formatDateToISOString('3000-12-05'),
-            links: '',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    year: '6000',
-    allContinents: [
-      {
-        continent: 'mars',
-        events: [
-          {
-            event: 'Humankind terraforms and settles on Mars in an underground colony',
-            date: formatDateToISOString('6000-05-20'),
-            links: '',
-          },
-        ],
-      },
-    ],
-  },
-
 ];
 
 // all year + all Location
@@ -186,7 +155,7 @@ exports.allLocationsID = [
 
 // GET all year data
 exports.allYears = [
-  '2300BCE',
+  // TODO: put gather years data here
 ];
 
 // GET all available API routes
