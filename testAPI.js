@@ -8,13 +8,13 @@ function requestsInOrder(params) {
     //fetchYearOnly().catch((err)=>console.error(err))
     
     async function fetchYearandLocation(params) {
-        let result2= await axios.get('http://localhost:8080/year/2012/location/europe');
+        let result2= await axios.get('http://localhost:8080/year/2012/location/north-america');
         console.log(result2.data);
     }
     //fetchYearandLocation().catch((err)=>console.error(err));
     
     async function fetchLocationOnly(params) {
-        let result3= await axios.get('http://localhost:8080/location/asia');
+        let result3= await axios.get('http://localhost:8080/location/north-america');
         console.log(result3.data);
     }
     //fetchLocationOnly().catch((err)=>console.error(err));

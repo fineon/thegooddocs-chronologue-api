@@ -35,11 +35,14 @@ let experimentalData = [
     year: '1968',
     allContinents: [
       {
-        continent: 'europe',
+        continent: 'north-america',
+        country: 'USA',
         events: [
           {
             event: 'The Orbiting Astronomical Observatory 2 was the first space telescope launched',
             date: formatDateToISOString('1968-12-07'),
+            image: 'link here',
+            video: 'link',
             links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
           },
         ],
@@ -51,10 +54,13 @@ let experimentalData = [
     allContinents: [
       {
         continent: 'europe',
+        country: 'Soviet',
         events: [
           {
             event: 'The first successful orbital launch of the Soviet uncrewed Sputnik 1 mission',
             date: formatDateToISOString('1957-10-04'),
+            image: 'link here',
+            video: 'link',
             links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
           },
         ],
@@ -66,10 +72,13 @@ let experimentalData = [
     allContinents: [
       {
         continent: 'europe',
+        country: 'Russia',
         events: [
           {
             event: 'The first successful human spaceflight was Vostok 1, carrying the 27-year-old Russian cosmonaut, Yuri Gagarin',
             date: formatDateToISOString('1961-04-12'),
+            image: 'link here',
+            video: 'link',
             links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
           },
         ],
@@ -80,11 +89,14 @@ let experimentalData = [
     year: '2012',
     allContinents: [
       {
-        continent: 'europe',
+        continent: 'north-america',
+        country: 'USA',
         events: [
           {
             event: 'Voyager 1 became the first human-made object to leave the Solar System into interstellar space',
             date: formatDateToISOString('2012-08-25'),
+            image: 'link here',
+            video: 'link',
             links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
           },
         ],
@@ -96,10 +108,13 @@ let experimentalData = [
     allContinents: [
       {
         continent: 'north-america',
+        country: 'USA',
         events: [
           {
             event: 'NASA Perseverance rover landed on Mars to find clues on past microbial life',
             date: formatDateToISOString('2021-02-18'),
+            image: 'link here',
+            video: 'link',
             links: 'https://www.nasa.gov/press-release/nasa-invites-public-to-share-thrill-of-mars-perseverance-rover-landing',
           },
         ],
@@ -111,10 +126,13 @@ let experimentalData = [
     allContinents: [
       {
         continent: 'north-america',
+        country: 'USA',
         events: [
           {
             event: 'NASA Artemis mission sending the first woman and man to the Moon by 2024',
             date: formatDateToISOString('2024'),
+            image: 'link here',
+            video: 'link',
             links: 'https://www.nasa.gov/specials/artemis/',
           },
         ],
@@ -131,14 +149,19 @@ exports.allYearsAllLocation = [...experimentalData];
 // GET all location data
 exports.allLocationsID = [
   {
-    allLocation: [
+    continent: [
       'asia',
       'africa',
       'europe',
-      'north america',
-      'south america',
+      'north-america',
+      'south-america',
       'oceania',
       'antartica',
+    ],
+    country: [
+      'USA',
+      'Soviet',
+      'Russia',
     ],
     metadata: [
       {
