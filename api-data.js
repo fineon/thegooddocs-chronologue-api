@@ -41,9 +41,12 @@ let experimentalData = [
           {
             event: 'The Orbiting Astronomical Observatory 2 was the first space telescope launched',
             date: formatDateToISOString('1968-12-07'),
-            image: 'link here',
-            video: 'link',
-            links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
+            image: 'http://www.sal.wisc.edu/OAO/oao1reg.jpg',
+            video: '',
+            links: [
+                'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
+                'http://www.sal.wisc.edu/OAO/'
+            ],
           },
         ],
       },
@@ -59,9 +62,12 @@ let experimentalData = [
           {
             event: 'The first successful orbital launch of the Soviet uncrewed Sputnik 1 mission',
             date: formatDateToISOString('1957-10-04'),
-            image: 'link here',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/b/be/Sputnik_asm.jpg',
             video: 'link',
-            links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
+            links: [
+                'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
+                'https://en.wikipedia.org/wiki/Sputnik_1',
+            ]
           },
         ],
       },
@@ -77,9 +83,12 @@ let experimentalData = [
           {
             event: 'The first successful human spaceflight was Vostok 1, carrying the 27-year-old Russian cosmonaut, Yuri Gagarin',
             date: formatDateToISOString('1961-04-12'),
-            image: 'link here',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/d/df/Vostok_spacecraft.jpg',
             video: 'link',
-            links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
+            links: [
+                'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
+                'https://en.wikipedia.org/wiki/Vostok_1'
+            ]
           },
         ],
       },
@@ -95,9 +104,12 @@ let experimentalData = [
           {
             event: 'Voyager 1 became the first human-made object to leave the Solar System into interstellar space',
             date: formatDateToISOString('2012-08-25'),
-            image: 'link here',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/6/60/Voyager_spacecraft_model.png',
             video: 'link',
-            links: 'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
+            links: [
+                'https://en.wikipedia.org/wiki/Space_exploration#Telescope',
+                'https://en.wikipedia.org/wiki/Voyager_1'
+            ]
           },
         ],
       },
@@ -113,9 +125,12 @@ let experimentalData = [
           {
             event: 'NASA Perseverance rover landed on Mars to find clues on past microbial life',
             date: formatDateToISOString('2021-02-18'),
-            image: 'link here',
+            image: 'https://www.nasa.gov/sites/default/files/thumbnails/image/09_touchdown_10k.jpg',
             video: 'link',
-            links: 'https://www.nasa.gov/press-release/nasa-invites-public-to-share-thrill-of-mars-perseverance-rover-landing',
+            links: [
+                'https://www.nasa.gov/press-release/nasa-invites-public-to-share-thrill-of-mars-perseverance-rover-landing',
+                ''
+            ]
           },
         ],
       },
@@ -131,9 +146,12 @@ let experimentalData = [
           {
             event: 'NASA Artemis mission sending the first woman and man to the Moon by 2024',
             date: formatDateToISOString('2024'),
-            image: 'link here',
+            image: 'https://blogs.nasa.gov/artemis/wp-content/uploads/sites/303/2021/10/OrionStacked.jpg',
             video: 'link',
-            links: 'https://www.nasa.gov/specials/artemis/',
+            links: [
+                'https://www.nasa.gov/specials/artemis/',
+                'https://blogs.nasa.gov/artemis/2021/10/20/stacking-operations-for-artemis-i-mission-nearing-completion/'
+            ]
           },
         ],
       },
