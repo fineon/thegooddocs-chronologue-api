@@ -29,7 +29,7 @@ const formatUTCDatetoLocale = (date) => {
 // prevents date conversion from moving one day backward
 
 // sorted from past to future
-let experimentalData = [
+let apiData = [
   {
     year: "1781",
     allContinents: [
@@ -235,38 +235,23 @@ let experimentalData = [
 
 // all year + all Location
 // SHOULD BE A SOURCE OF TRUTH FOR ALL DATA AND API CALLS
-exports.allYearsAllLocation = [...experimentalData];
+exports.allYearsAllLocation = [...apiData];
 
 // GET all location data
 exports.allLocationsID = [
   {
     continent: [
-      "asia",
-      "africa",
+      "australia",
       "europe",
       "north-america",
-      "south-america",
-      "oceania",
-      "antartica",
     ],
-    country: ["USA", "Soviet", "Russia"],
-    metadata: [
-      {
-        listLength: 7,
-      },
-      {
-        source:
-          "https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population",
-        liscene: "CC BY-SA 3.0",
-        link: "https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License",
-      },
-    ],
+    country: ["Australia", "Russia", "Soviet", "USA"],
   },
 ];
 
 // GET all year data
 exports.allYears = [
-  // TODO: put gather years data here
+  1781, 1957, 1961, 1968, 2012, 2016, 2021, 2024, 3000
 ];
 
 // GET all available API routes
